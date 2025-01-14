@@ -1,0 +1,9 @@
+{
+  "accounts": [
+    {
+      "token": "DISCORD_USERBOT_TOKEN_HERE",
+      "channelId": "CHANNEL_ID_HERE"
+    }
+  ]
+}
+
