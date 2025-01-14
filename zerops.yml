@@ -1,20 +1,22 @@
-build:
-    os: alpine
-    base: nodejs@20
-    buildCommands:
-        - npm i
-        - npm run build
-    deployFiles:
-        - dist
-        - package.json
-        - node_modules
-    cache:
-        - node_modules
-        - package-lock.json
-run:
-    os: alpine
-    base: nodejs@20
-    start: npm start
-    ports:
-        - port: 3000
-          httpSupport: true
+services:
+  - name: api
+    build:
+        os: alpine
+        base: nodejs@20
+        buildCommands:
+            - npm i
+            - npm run build
+        deployFiles:
+            - dist
+            - package.json
+            - node_modules
+        cache:
+            - node_modules
+            - package-lock.json
+    run:
+        os: alpine
+        base: nodejs@20
+        start: npm start
+        ports:
+            - port: 3000
+              httpSupport: true
