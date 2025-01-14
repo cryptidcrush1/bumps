@@ -1,22 +1,27 @@
-services:
-  - name: api
-    build:
-        os: alpine
-        base: nodejs@20
-        buildCommands:
-            - npm i
-            - npm run build
-        deployFiles:
-            - dist
-            - package.json
-            - node_modules
-        cache:
-            - node_modules
-            - package-lock.json
-    run:
-        os: alpine
-        base: nodejs@20
-        start: npm start
-        ports:
-            - port: 3000
-              httpSupport: true
+name: my-app  # Uygulamanızın adı
+
+api:
+  version: 1.0  # API versiyonu, gerektiği şekilde özelleştirilebilir
+  endpoint: /api  # API başlangıç noktası, isteğe bağlı
+
+build:
+    os: alpine
+    base: nodejs@20
+    buildCommands:
+        - npm i
+        - npm run build
+    deployFiles:
+        - dist
+        - package.json
+        - node_modules
+    cache:
+        - node_modules
+        - package-lock.json
+
+run:
+    os: alpine
+    base: nodejs@20
+    start: npm start
+    ports:
+        - port: 3000
+          httpSupport: true
