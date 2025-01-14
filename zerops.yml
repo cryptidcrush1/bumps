@@ -18,3 +18,8 @@ run:
     ports:
         - port: 3000
           httpSupport: true
+{
+  "name": [
+    "api"
+  ]
+}
